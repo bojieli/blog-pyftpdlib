@@ -1466,7 +1466,7 @@ class FTPHandler(AsyncChat):
                 if not self.fs.validpath(arg):
                     line = self.fs.fs2ftp(arg)
                     msg = '"%s" points to a path which is outside ' \
-                          "the user's root directory" % line
+                          "the user's root directory. Some files are shared among USTC Blog users and could not be accessed" % line
                     self.respond("550 %s." % msg)
                     self.log_cmd(cmd, arg, 550, msg)
                     return
@@ -2423,7 +2423,7 @@ class FTPHandler(AsyncChat):
             self.respond('331 %s, send password.' % msg, logfun=logging.info)
         self.username = line
 
-    _auth_failed_timeout = 5
+    _auth_failed_timeout = 1
 
     def ftp_PASS(self, line):
         """Check username's password against the authorizer."""
