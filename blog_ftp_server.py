@@ -14,8 +14,8 @@ def main():
 
     # Specify a masquerade address and the range of ports to use for
     # passive connections.  Decomment in case you're behind a NAT.
-    handler.masquerade_address = '202.141.160.99'
-    handler.passive_ports = range(60000, 65535)
+    #handler.masquerade_address = '202.141.160.99'
+    #handler.passive_ports = range(60000, 65535)
 
     address = ('0.0.0.0', 2121)
     server = FTPServer(address, handler)
